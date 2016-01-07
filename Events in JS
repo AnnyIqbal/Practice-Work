@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head> 
+<title> Events in JS </title>
+</head>
+
+<script>
+function greet(x)
+{
+  alert(x);
+}
+
+function checkEmail(x)
+{
+  if(document.getElementById(x).value === "")
+  {
+    alert("Enter email");
+  }
+}
+</script>
+
+<body>
+
+<!-- Chp 45 : Events: Link -->
+<a href = "JavaScript:void(0)" onClick = "alert('Hi');"> Click here </a>
+
+<!-- Chp 46: Events: Button -->
+<br /> <br />
+<input type = "button" value = "Click" onClick = "alert('Hello World');" />
+
+<br /><br />
+<a href = "#"> <img src = "C:\Users\Qurat ul Ann Mgr R&C\Documents\Downloads\7.png" onClick = "greet('Image');"> </a>
+
+<!-- Chp 47: Events: Mouse -->
+<br /><br /> <!-- not working -->
+<img src = "C:\Users\Qurat ul Ann Mgr R&C\Documents\Downloads\12.png" onMouseOver="src='C:\Users\Qurat ul Ann Mgr R&C\Documents\Downloads\7.png'" onMouseOut="src='C:\Users\Qurat ul Ann Mgr R&C\Documents\Downloads\12.png'" />
+
+<h1 onMouseOver="alert('Hi');"> Hello </h1>
+
+<h2 onMouseOver="this.style.color='red';" onMouseOut = "this.style.color='blue';"> Heading </h2>
+
+<p id="loris" onMouseOver="expand();">Slow Loris: Mouse over for more info</p> 
+
+<!-- Chp 48: Events: Fields -->
+Email: <input type = "email" onFocus = "this.style.backgroundColor = 'green';" onBlur = "this.style.backgroundColor = 'white';"/>
+
+<!-- Chp 49: Reading field values -->
+
+<form onSubmit = "checkEmail('email');">
+Email : <input type = "email" id = "email" onFocus = "this.style.backgroundColor = 'green';" onBlur = "this.style.backgroundColor = 'white';"/>
+<br /> <input type = "submit" value = "Submit" />
+</form>
+
+<!-- Chp 50: Setting field values -->
+
+
+
+</body>
+
+</html>
