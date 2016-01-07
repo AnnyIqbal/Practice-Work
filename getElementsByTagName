@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p> This is para 1 </p>
+<p> Hi, how are you? </p>
+
+Name <input type = "text" name = "username" />
+Email <input type = "text" name = "email" />
+<input type = "button" value = "save" onClick = "save();" />
+<script>
+function save()
+{
+for(var i = 0; i < 2 ; i++)
+{
+var a = document.getElementsByTagName('p')[i].innerHTML;
+var z = document.getElementsByTagName('input')[i].value;
+
+console.log(a);
+console.log(z);
+}}
+</script>
+</body>
+</html>
