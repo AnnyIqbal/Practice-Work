@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head> 
+<title> Events in JS </title>
+
+<script>
+function greet(x)
+{
+  alert(x);
+}
+
+function checkEmail(x)
+{
+  if(document.getElementById(x).value === "")
+  {
+    alert("Enter email");
+  }
+}
+</script>
+</head>
+
+<body>
+
+<!-- Chp 45 : Events: Link 
+<a href = "JavaScript:void(0)" onClick = "alert('Hi');"> Click here </a>
+-->
+
+<!-- Chp 46: Events: Button 
+<br /> <br />
+<input type = "button" value = "Click" onClick = "alert('Hello World');" />
+
+<br /><br />
+<a href = "#"> <img src = "C:\Users\Qurat ul Ann Mgr R&C\Documents\Downloads\7.png" onClick = "greet('Image');"> </a>
+-->
+
+<!-- Chp 47: Events: Mouse (not working)
+<br /><br /> 
+<img src = "C:\Users\Qurat ul Ann Mgr R&C\Documents\Downloads\12.png" onMouseOver="src='C:\Users\Qurat ul Ann Mgr R&C\Documents\Downloads\7.png'" onMouseOut="src='C:\Users\Qurat ul Ann Mgr R&C\Documents\Downloads\12.png'" />
+
+<h1 onMouseOver="alert('Hi');"> Hello </h1>
+
+<h2 onMouseOver="this.style.color='red';" onMouseOut = "this.style.color='blue';"> Heading </h2>
+
+<p id="loris" onMouseOver="expand();">Slow Loris: Mouse over for more info</p> 
+-->
+
+<!-- Chp 48: Events: Fields 
+Email: <input type = "email" onFocus = "this.style.backgroundColor = 'green';" onBlur = "this.style.backgroundColor = 'white';"/>
+-->
+
+<!-- Chp 49: Reading field values 
+
+<form onSubmit = "checkEmail('email');">
+Email : <input type = "email" id = "email" onFocus = "this.style.backgroundColor = 'green';" onBlur = "this.style.backgroundColor = 'white';"/>
+<br /> <input type = "submit" value = "Submit" />
+</form>
+-->
+
+<!-- Chp 50: Setting field values 
+
+<form>
+
+Name: <input type = "text" name = "username" />
+City: <input type = "text" id = "city" name = "city" onBlur = "fillCity();" />
+ZIP: <input type = "number" id = "zip" name = "zip" />
+
+</form>
+
+<script>
+
+function fillCity()
+{
+  var z;
+  var x = document.getElementById('city').value;
+  switch(x) 
+  {
+    case 'karachi':
+     {
+      z = 75700;
+      break;
+     }
+    case 'lahore':
+     {
+      z = 75500;
+      break;
+     }
+    default:
+     {
+      z = 00000;
+     }
+   }
+   document.getElementById('zip').value = z;
+}
+</script>
+-->
+
+<!-- Chp 51 : para expand done in ass-->
+<!-- Chp 52 
+<style>
+.hidden
+{
+display: none;
+}
+</style>
+<p> This is a paragraph. </p>
+<p id = "para" onClick = "hide();"> This is an image that you dont wanna see anymore. </p>
+<script>
+function hide()
+{
+document.getElementById('para').className = "hidden";
+}
+</script>
+-->
+
+<!-- Chp 53 
+
+<img src = "1.jpg" alt = "before" id = "image1" onMouseOver = "swapImage('image1', '2.jpg');" onMouseOut = "swapImage('image1', '1.jpg');" />
+
+<script>
+function swapImage(id, imageLink)
+{
+  document.getElementById(id).src = imageLink;
+}
+</script>
+-->
+
+<!-- Chp 54 
+
+<a href = "https://www.google.com.pk/" id = "url" onClick = "getLink();"> Google it! </a>
+<script>
+function getLink()
+{
+var l = document.getElementById('url').href;
+alert(l);
+}
+</script>
+-->
+
+<!-- Chp 55: setting styles
+
+<p onClick = "this.style.fontSize = '28px'" onMouseOver = "this.style.color = 'red'" onMouseOut = "this.style.cssFloat = 'right'"> The paragraph is red in color </p>
+<p> This is another paragraph. </p>
+<!-- .getComputedStyle would get css properties specified inline and in <style> tags as well 
+var m = document.getComputedStyle("mainPic").margin; -->
+
+<!-- Chp 56 -->
+
+<p> This is a paragraph </p>
+<a href = "#" onClick = "tags();">Click here</a> 
+<div id = "hi">
+<p> Another paragraph </p>
+<p> again a paragraph </p>
+</div>
+<script>
+function tags()
+{
+ var d = document.getElementById('hi');
+ var a = d.getElementsByTagName('p');
+ var p1 = a[1].innerHTML;
+ alert(p1);
+ a[0].innerHTML = "Hey, how are you?";
+ for(var i = 0; i < a.length; i++)
+ {
+   a[i].style.color = "blue";
+   a[i].style.fontFamily = "Verdana", "sans-serif";
+ }
+}
+</script>
+
+</body>
+
+</html>
