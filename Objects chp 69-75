@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title> Object </title>
+</head>
+
+<body>
+
+<script>
+/*var std = {
+	name : "anny",
+	age  : 25,
+	gender : "female",
+	html : prompt("Enter Marks"),
+	css : prompt("Enter Marks"),
+	js : prompt("Enter Marks"),
+	total : undefined,
+	per : undefined,
+	marksheet : function()
+	{
+ 	  this.html = parseInt(this.html);
+	  this.css = parseInt(this.css);
+	  this.js = parseInt(this.js);
+      this.total = this.html + this.css + this.js;
+	  this.per = (this.total/300) * 100;
+ 	  return this.per;
+	}
+	  };
+*/
+	//Constructor
+/*
+	function People(name, age, gender, fav_colors)
+	{
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.fav_colors = fav_colors;
+		this.uprcase = function(x)
+		{
+			return x.toUpperCase();
+		}
+	}
+	var a = "name";
+	var p1 = new People("anny",21,'f',["red","blue","black"]);
+	var p2 = new People("zeeshan", 18, 'm', ["green", "white"]);
+
+//	document.write(p1.fav_colors[2]);
+//	document.write(p2.age);
+
+	document.write(p1.uprcase(a));
+	document.write(p2.uprcase("saibu"));
+*/
+	//Prototype
+
+	function People(name, age, gender, fav_colors)
+	{
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.fav_colors = fav_colors;
+		this.uprcase = function(x)
+		{
+			return x.toUpperCase();
+		}
+	}
+	var p1 = new People("anny",21,'f',["red","blue","black"]);
+	var p2 = new People("zeeshan", 18, 'm', ["green", "white"]);
+
+	People.prototype.value = 2.12;
+//	alert(p1.value);
+	p2.value = 0;
+//	alert("overriden value : " + p2.value);
+
+	People.prototype.lower = function(x)
+	{
+		return x.toLowerCase();
+	}
+//	alert(p2.lower("QURAT UL ANN IQBAL"));
+
+	//For-In Loop
+
+	var list = [];
+	for(var x in p1)
+	{
+		list.push(x);
+		alert(list);  //display complete array
+	}
+
+	var listown = [];
+	for(var z in p2)
+	{
+		if(p2.hasOwnProperty(z))
+		{
+			listown.push(z);
+			alert(z);   //diaplaying only single element in each iteration
+		}
+	}
+
+	alert(p1.hasOwnProperty("value"));  //prototype inherited property
+</script>
+</body>
+</html>
