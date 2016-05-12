@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real Time Database Practice</title>
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+</head>
+<body>
+    <div id="displayMsg"></div>
+    <form method="post">
+        <input type="text" id="username" placeholder="Name" /> <br><br>
+        <textarea id="feedback" placeholder="Your Feedback"></textarea> <br><br>
+        <input type="button" value="Submit" onclick="msg();" />
+    </form>
+    <script>
+        var myDataRef = new Firebase('https://portfoliomsgs.firebaseio.com/');
+        function msg() {
+            var name = document.getElementById("username").value;
+            var feedback = document.getElementById("feedback").value;
+//            myDataRef.set('User ' + name + ' has an email id : ' + email); // variable set krwaya as data
+//            myDataRef.set({name: name, feedback: feedback}); // variable set krwaya as an object har bar new data replace hoga
+            myDataRef.push({name: name, feedback: feedback}); //variable me push krwaya object har bar jb koi send p click krega to wo data yahan push hojaega
+        }
+        myDataRef.on('child_added', function(snapshot) {
+//We need to tell the database to notify us when chat messages arrive. We do this by adding a callback
+// to the list of chat messages using the on() method
+
+//   Extract the message data from the snapshot by calling the val() function and assign it to a variable.
+//   Then, call the displayMessage() function to display the message
+
+            var message = snapshot.val();
+            displayMessage(message.name, message.feedback);
+        });
+        function displayMessage(nm, fb) {
+            document.getElementById("displayMsg").innerHTML += nm + " : '" + fb + "' <br />";
+        }
+    </script>
+</body>
+</html>
